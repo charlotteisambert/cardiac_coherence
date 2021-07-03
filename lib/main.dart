@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
         body: const Center(
-          child: MyStatefulWidget(),
+          child: HorizontalBar(),
         ),
       ),
     );
@@ -23,22 +23,24 @@ class MyApp extends StatelessWidget {
 }
 
 /// This is the stateful widget that the main application instantiates.
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+class HorizontalBar extends StatefulWidget {
+  const HorizontalBar({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  State<HorizontalBar> createState() => _HorizontalBarState();
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget>
+class _HorizontalBarState extends State<HorizontalBar>
     with TickerProviderStateMixin {
-  double _size = 50.0;
+  double _width = 100.0;
+  double _height = 10.0;
   bool _large = false;
 
   void _updateSize() {
     setState(() {
-      _size = _large ? 250.0 : 100.0;
+      _width = _large ? 150.0 : 100.0;
+      _height = _large ? 15.0 : 10.0;
       _large = !_large;
     });
   }
@@ -48,9 +50,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
     return GestureDetector(
       onTap: () => _updateSize(),
       child: AnimatedContainer(
-        duration: Duration(seconds: 1),
-        width: _size,
-        height: _size,
+        duration: Duration(milliseconds: 500),
+        width: _width,
+        height: _height,
         color: Colors.blue,
       ),
     );
