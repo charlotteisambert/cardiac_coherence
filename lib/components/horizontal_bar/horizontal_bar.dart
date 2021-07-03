@@ -13,20 +13,20 @@ class HorizontalBar extends StatefulWidget {
 /// This is the private State class that goes with MyStatefulWidget.
 class _HorizontalBarState extends State<HorizontalBar>
     with TickerProviderStateMixin {
-  bool _large = false;
+  bool _isLarge = false;
 
   void _updateSize() {
     setState(() {
-      _large = !_large;
+      _isLarge = !_isLarge;
     });
   }
 
   double _getWidth() {
-    return _large ? widget.width + widget.width * 50 / 100 : widget.width;
+    return _isLarge ? widget.width + widget.width * 50 / 100 : widget.width;
   }
 
   double _getHeight() {
-    return _large ? widget.height + widget.height * 50 / 100 : widget.height;
+    return _isLarge ? widget.height + widget.height * 50 / 100 : widget.height;
   }
 
   @override
