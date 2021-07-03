@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HorizontalBar extends StatefulWidget {
-  const HorizontalBar({Key? key}) : super(key: key);
+  final double height;
+  final double width;
+  const HorizontalBar({required this.height, required this.width, Key? key})
+      : super(key: key);
 
   @override
   State<HorizontalBar> createState() => _HorizontalBarState();
@@ -10,16 +13,20 @@ class HorizontalBar extends StatefulWidget {
 /// This is the private State class that goes with MyStatefulWidget.
 class _HorizontalBarState extends State<HorizontalBar>
     with TickerProviderStateMixin {
-  double _width = 100.0;
-  double _height = 10.0;
   bool _large = false;
 
   void _updateSize() {
     setState(() {
-      _width = _large ? 150.0 : 100.0;
-      _height = _large ? 15.0 : 10.0;
       _large = !_large;
     });
+  }
+
+  double _getWidth() {
+    return _large ? widget.width + widget.width * 50 / 100 : widget.width;
+  }
+
+  double _getHeight() {
+    return _large ? widget.height + widget.height * 50 / 100 : widget.height;
   }
 
   @override
@@ -28,8 +35,8 @@ class _HorizontalBarState extends State<HorizontalBar>
       onTap: () => _updateSize(),
       child: AnimatedContainer(
         duration: Duration(milliseconds: 500),
-        width: _width,
-        height: _height,
+        width: _getWidth(),
+        height: _getHeight(),
         color: Colors.blue,
       ),
     );
