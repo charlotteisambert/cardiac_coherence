@@ -42,7 +42,8 @@ class _HorizontalBarState extends State<HorizontalBar>
       child: AnimatedContainer(
         duration: Duration(milliseconds: 500),
         width: _getWidth(),
-        height: widget.height,
+        height: widget
+            .height, // TODO : make the height change without making its siblings height change
         color: Colors.blue,
       ),
     );
