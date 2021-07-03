@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 const GROWTH_PERCENTAGE = 50 / 100;
 
+double _getSizeByIsLarge(double _size, bool _isLarge) {
+  return _isLarge ? _size + _size * GROWTH_PERCENTAGE : _size;
+}
+
 class HorizontalBar extends StatefulWidget {
   final double height;
   final double width;
@@ -24,15 +28,11 @@ class _HorizontalBarState extends State<HorizontalBar>
   }
 
   double _getWidth() {
-    return _isLarge
-        ? widget.width + widget.width * GROWTH_PERCENTAGE
-        : widget.width;
+    return _getSizeByIsLarge(widget.width, _isLarge);
   }
 
   double _getHeight() {
-    return _isLarge
-        ? widget.height + widget.height * GROWTH_PERCENTAGE
-        : widget.height;
+    return _getSizeByIsLarge(widget.height, _isLarge);
   }
 
   @override
