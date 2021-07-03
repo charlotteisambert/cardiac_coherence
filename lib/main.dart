@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
         body: const Center(
-          child: HorizontalBar(height: 10.0, width: 100.0),
+          child: HorizontalBars(),
         ),
       ),
     );
