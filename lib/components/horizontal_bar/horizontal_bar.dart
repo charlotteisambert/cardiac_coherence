@@ -59,8 +59,9 @@ class HorizontalBar extends StatefulWidget {
     required this.height,
     required this.width,
     required this.animationBegin,
-  })  : animatedWidth = _simpleAnimatedWidth(width, animationBegin, controller),
-        // _animatedWidthBackAndForth(50, animationBegin, controller),
+  })  : animatedWidth =
+            // _simpleAnimatedWidth(width, animationBegin, controller),
+            _animatedWidthBackAndForth(50, animationBegin, controller),
         super(key: key);
 
   @override
