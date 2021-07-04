@@ -29,7 +29,7 @@ class _StaggerDemoState extends State<StaggerDemo>
     super.initState();
 
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 2000), vsync: this);
+        duration: const Duration(milliseconds: 5000), vsync: this);
   }
 
   Future<void> _playAnimation() async {
@@ -55,7 +55,7 @@ class _StaggerDemoState extends State<StaggerDemo>
         },
         child: Center(
           child: Container(
-            width: 300.0,
+            width: 350.0,
             height: 500.0,
             alignment: Alignment.bottomCenter,
             child: HorizontalBars(

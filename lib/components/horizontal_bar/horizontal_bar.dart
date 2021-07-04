@@ -5,6 +5,7 @@ const GROWTH_PERCENTAGE = 50 / 100;
 class HorizontalBar extends StatefulWidget {
   final double height;
   final double width;
+  final double animationBegin;
   final Animation<double> animatedWidth;
   final Animation<double> controller;
 
@@ -13,16 +14,17 @@ class HorizontalBar extends StatefulWidget {
     required this.controller,
     required this.height,
     required this.width,
+    required this.animationBegin,
   })  : animatedWidth = Tween<double>(
           begin: width,
-          end: 400.0,
+          end: width + 100.0,
         ).animate(
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.0,
-              0.200,
-              curve: Curves.ease,
+              animationBegin,
+              animationBegin + 0.100,
+              curve: Curves.easeOut,
             ),
           ),
         ),
