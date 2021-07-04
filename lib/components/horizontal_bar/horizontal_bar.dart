@@ -2,6 +2,50 @@ import 'package:flutter/material.dart';
 
 const GROWTH_PERCENTAGE = 50 / 100;
 
+var _simpleAnimatedWidth = (double initialWidth, double animationBegin,
+        Animation<double> controller) =>
+    Tween<double>(
+      begin: initialWidth,
+      end: initialWidth + 100.0,
+    ).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: Interval(
+          animationBegin,
+          animationBegin + 0.100,
+          curve: Curves.easeOut,
+        ),
+      ),
+    );
+
+var _animatedWidthBackAndForth = (double initialWidth, double animationBegin,
+        Animation<double> controller) =>
+    TweenSequence(<TweenSequenceItem<double>>[
+      TweenSequenceItem<double>(
+        tween: Tween<double>(
+          begin: initialWidth,
+          end: initialWidth + 300.0,
+        ),
+        weight: 50.0,
+      ),
+      TweenSequenceItem<double>(
+        tween: Tween<double>(
+          begin: initialWidth + 300.0,
+          end: initialWidth,
+        ),
+        weight: 50.0,
+      ),
+    ]).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: Interval(
+          animationBegin,
+          animationBegin + 0.100,
+          curve: Curves.easeOut,
+        ),
+      ),
+    );
+
 class HorizontalBar extends StatefulWidget {
   final double height;
   final double width;
@@ -15,22 +59,8 @@ class HorizontalBar extends StatefulWidget {
     required this.height,
     required this.width,
     required this.animationBegin,
-  })  : animatedWidth = Tween<double>(
-          begin: width,
-          end: width + 100.0,
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              animationBegin,
-              animationBegin + 0.100,
-              curve: Curves.easeOut,
-            ),
-          ),
-        ),
-
-        // ... Other tween definitions ...
-
+  })  : animatedWidth = _simpleAnimatedWidth(width, animationBegin, controller),
+        // _animatedWidthBackAndForth(50, animationBegin, controller),
         super(key: key);
 
   @override
