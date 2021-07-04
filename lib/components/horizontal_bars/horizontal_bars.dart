@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 const NUMBER_OF_BARS = 20;
 const MINIMUM_BAR_HEIGHT = 5.0;
 const MINIMUM_BAR_WIDTH = 10.0;
-const BAR_ANIMATION_DURATION = 0.500;
+const ONE_BAR_ANIMATION_DURATION = 0.100;
+const WHOLE_ANIMATION_DURATION = 1;
+const INDEX_SHIFT = 1;
 
 class HorizontalBars extends StatelessWidget {
   final Animation<double> controller;
@@ -28,9 +30,12 @@ class HorizontalBars extends StatelessWidget {
                         height: MINIMUM_BAR_HEIGHT,
                         width: MINIMUM_BAR_WIDTH +
                             MINIMUM_BAR_WIDTH * (NUMBER_OF_BARS - index),
+                        animationDuration: ONE_BAR_ANIMATION_DURATION,
                         controller: controller,
-                        animationBegin:
-                            0.5 * (NUMBER_OF_BARS - index) / NUMBER_OF_BARS,
+                        animationBegin: (WHOLE_ANIMATION_DURATION -
+                                ONE_BAR_ANIMATION_DURATION) *
+                            (NUMBER_OF_BARS - INDEX_SHIFT - index) /
+                            (NUMBER_OF_BARS - INDEX_SHIFT),
                       ))
             ])));
   }

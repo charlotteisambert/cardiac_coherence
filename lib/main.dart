@@ -55,7 +55,6 @@ class _StaggerDemoState extends State<StaggerDemo>
         },
         child: Center(
           child: Container(
-            width: 350.0,
             height: 500.0,
             alignment: Alignment.bottomCenter,
             child: HorizontalBars(

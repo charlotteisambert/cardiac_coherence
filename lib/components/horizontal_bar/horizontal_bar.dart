@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const GROWTH_PERCENTAGE = 50 / 100;
 
 var _simpleAnimatedWidth = (double initialWidth, double animationBegin,
-        Animation<double> controller) =>
+        double animationDuration, Animation<double> controller) =>
     Tween<double>(
       begin: initialWidth,
       end: initialWidth + 100.0,
@@ -12,14 +12,14 @@ var _simpleAnimatedWidth = (double initialWidth, double animationBegin,
         parent: controller,
         curve: Interval(
           animationBegin,
-          animationBegin + 0.100,
+          animationBegin + animationDuration,
           curve: Curves.easeOut,
         ),
       ),
     );
 
 var _animatedWidthBackAndForth = (double initialWidth, double animationBegin,
-        Animation<double> controller) =>
+        double animationDuration, Animation<double> controller) =>
     TweenSequence(<TweenSequenceItem<double>>[
       TweenSequenceItem<double>(
         tween: Tween<double>(
@@ -40,7 +40,7 @@ var _animatedWidthBackAndForth = (double initialWidth, double animationBegin,
         parent: controller,
         curve: Interval(
           animationBegin,
-          animationBegin + 0.100,
+          animationBegin + animationDuration,
           curve: Curves.easeOut,
         ),
       ),
@@ -50,6 +50,7 @@ class HorizontalBar extends StatefulWidget {
   final double height;
   final double width;
   final double animationBegin;
+  final double animationDuration;
   final Animation<double> animatedWidth;
   final Animation<double> controller;
 
@@ -59,9 +60,11 @@ class HorizontalBar extends StatefulWidget {
     required this.height,
     required this.width,
     required this.animationBegin,
-  })  : animatedWidth =
-            // _simpleAnimatedWidth(width, animationBegin, controller),
-            _animatedWidthBackAndForth(50, animationBegin, controller),
+    required this.animationDuration,
+  })  : animatedWidth = _simpleAnimatedWidth(
+            width, animationBegin, animationDuration, controller),
+        // _animatedWidthBackAndForth(
+        // 50, animationBegin, animationDuration, controller),
         super(key: key);
 
   @override
