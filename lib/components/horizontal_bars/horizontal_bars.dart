@@ -1,8 +1,8 @@
 import 'package:cardiac_coherence/components/horizontal_bar/horizontal_bar.dart';
 import 'package:flutter/material.dart';
 
-const NUMBER_OF_BARS = 20;
-const MINIMUM_BAR_HEIGHT = 5.0;
+const NUMBER_OF_BARS = 12;
+const MINIMUM_BAR_HEIGHT = 6.0;
 const MINIMUM_BAR_WIDTH = 10.0;
 const ONE_BAR_ANIMATION_DURATION = 0.100;
 const WHOLE_ANIMATION_DURATION = 1;

@@ -6,7 +6,7 @@ var _simpleAnimatedWidth = (double initialWidth, double animationBegin,
         double animationDuration, Animation<double> controller) =>
     Tween<double>(
       begin: initialWidth,
-      end: initialWidth + 100.0,
+      end: initialWidth + 70.0,
     ).animate(
       CurvedAnimation(
         parent: controller,
