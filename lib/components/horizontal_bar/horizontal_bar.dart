@@ -46,12 +46,29 @@ var _animatedWidthBackAndForth = (double initialWidth, double animationBegin,
       ),
     );
 
+var _animatedOpacity = (double animationBegin, double animationDuration,
+        Animation<double> controller) =>
+    Tween<double>(
+      begin: 0.3,
+      end: 1.0,
+    ).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: Interval(
+          animationBegin,
+          animationBegin + animationDuration,
+          curve: Curves.linear,
+        ),
+      ),
+    );
+
 class HorizontalBar extends StatefulWidget {
   final double height;
   final double width;
   final double animationBegin;
   final double animationDuration;
   final Animation<double> animatedWidth;
+  final Animation<double> opacity;
   final Animation<double> controller;
 
   HorizontalBar({
@@ -63,8 +80,10 @@ class HorizontalBar extends StatefulWidget {
     required this.animationDuration,
   })  : animatedWidth = _simpleAnimatedWidth(
             width, animationBegin, animationDuration, controller),
-        // _animatedWidthBackAndForth(
-        // 50, animationBegin, animationDuration, controller),
+        // animatedWidth = _animatedWidthBackAndForth(
+        //     50, animationBegin, animationDuration, controller),
+        opacity =
+            _animatedOpacity(animationBegin, animationDuration, controller),
         super(key: key);
 
   @override
@@ -78,7 +97,7 @@ class _HorizontalBarState extends State<HorizontalBar>
     return Container(
       width: widget.animatedWidth.value,
       height: widget.height,
-      color: Colors.purple,
+      color: Colors.purple.withOpacity(widget.opacity.value),
     );
   }
 
