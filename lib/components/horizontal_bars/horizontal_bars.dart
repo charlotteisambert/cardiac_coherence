@@ -5,8 +5,9 @@ const NUMBER_OF_BARS = 12;
 const MINIMUM_BAR_HEIGHT = 6.0;
 const MINIMUM_BAR_WIDTH = 10.0;
 const ONE_BAR_ANIMATION_DURATION = 0.100;
-const WHOLE_ANIMATION_DURATION = 1;
 const INDEX_SHIFT = 1;
+const DELAY_BETWEEN_ITERATION = 0.05;
+const WHOLE_ANIMATION_DURATION = 1 - DELAY_BETWEEN_ITERATION;
 
 class HorizontalBars extends StatelessWidget {
   final Animation<double> controller;
@@ -32,10 +33,11 @@ class HorizontalBars extends StatelessWidget {
                             MINIMUM_BAR_WIDTH * (NUMBER_OF_BARS - index),
                         animationDuration: ONE_BAR_ANIMATION_DURATION,
                         controller: controller,
-                        animationBegin: (WHOLE_ANIMATION_DURATION -
-                                ONE_BAR_ANIMATION_DURATION) *
-                            (NUMBER_OF_BARS - INDEX_SHIFT - index) /
-                            (NUMBER_OF_BARS - INDEX_SHIFT),
+                        animationBegin: DELAY_BETWEEN_ITERATION / 2 +
+                            (WHOLE_ANIMATION_DURATION -
+                                    ONE_BAR_ANIMATION_DURATION) *
+                                (NUMBER_OF_BARS - INDEX_SHIFT - index) /
+                                (NUMBER_OF_BARS - INDEX_SHIFT),
                       ))
             ])));
   }
