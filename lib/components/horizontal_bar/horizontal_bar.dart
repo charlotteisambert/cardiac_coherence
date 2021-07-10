@@ -49,7 +49,7 @@ var _animatedWidthBackAndForth = (double initialWidth, double animationBegin,
 var _animatedOpacity = (double animationBegin, double animationDuration,
         Animation<double> controller) =>
     Tween<double>(
-      begin: 0.3,
+      begin: 0.1,
       end: 1.0,
     ).animate(
       CurvedAnimation(
@@ -97,7 +97,7 @@ class _HorizontalBarState extends State<HorizontalBar>
         width: widget.animatedWidth.value,
         height: widget.height,
         decoration: BoxDecoration(
-          color: Colors.purple.withOpacity(widget.opacity.value),
+          color: Colors.white.withOpacity(widget.opacity.value),
           borderRadius: BorderRadius.circular(10),
         ));
   }

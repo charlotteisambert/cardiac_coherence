@@ -15,6 +15,6 @@ class MyApp extends StatelessWidget {
             appBar: AppBar(
               title: const Text(_title),
             ),
-            body: BarsAnimationWrapper()));
+            body: Home()));
   }
 }
