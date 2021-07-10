@@ -36,7 +36,6 @@ class _StaggerDemoState extends State<StaggerDemo>
     try {
       await _controller.forward().orCancel;
       await _controller.repeat(reverse: true).orCancel;
-      await _controller.reverse().orCancel;
     } on TickerCanceled {
       // the animation got canceled, probably because it was disposed of
     }
