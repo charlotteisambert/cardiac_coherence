@@ -90,7 +90,6 @@ class HorizontalBar extends StatefulWidget {
   State<HorizontalBar> createState() => _HorizontalBarState();
 }
 
-/// This is the private State class that goes with MyStatefulWidget.
 class _HorizontalBarState extends State<HorizontalBar>
     with TickerProviderStateMixin {
   Widget _buildAnimation(BuildContext context, Widget? child) {
