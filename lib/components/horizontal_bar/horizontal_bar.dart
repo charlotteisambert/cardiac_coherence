@@ -95,10 +95,12 @@ class _HorizontalBarState extends State<HorizontalBar>
     with TickerProviderStateMixin {
   Widget _buildAnimation(BuildContext context, Widget? child) {
     return Container(
-      width: widget.animatedWidth.value,
-      height: widget.height,
-      color: Colors.purple.withOpacity(widget.opacity.value),
-    );
+        width: widget.animatedWidth.value,
+        height: widget.height,
+        decoration: BoxDecoration(
+          color: Colors.purple.withOpacity(widget.opacity.value),
+          borderRadius: BorderRadius.circular(10),
+        ));
   }
 
   @override
