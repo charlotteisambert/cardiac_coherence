@@ -44,7 +44,8 @@ class _BarsAnimationWrapperState extends State<BarsAnimationWrapper>
           controller: _controller.view,
         ),
         SizedBox(height: 50),
-        AnimationButtonController(onPressed: _playAnimation)
+        AnimationButtonController(
+            startAnimation: _playAnimation, stopAnimation: _stopAnimation)
       ],
     );
   }

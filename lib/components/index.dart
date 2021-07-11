@@ -5,3 +5,4 @@ export 'home/home.dart';
 export 'instructions/instructions.dart';
 export 'animated_opacity_text/animated_opacity_text.dart';
 export 'animation-button-controller/animation-button-controller.dart';
+export 'animation-button/animation-button.dart';
