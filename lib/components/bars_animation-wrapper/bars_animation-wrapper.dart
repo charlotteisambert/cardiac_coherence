@@ -8,7 +8,6 @@ class BarsAnimationWrapper extends StatefulWidget {
 
 class _BarsAnimationWrapperState extends State<BarsAnimationWrapper>
     with TickerProviderStateMixin {
-  String instructionsTitle = "Breath in";
   late AnimationController _controller;
 
   @override
@@ -17,18 +16,6 @@ class _BarsAnimationWrapperState extends State<BarsAnimationWrapper>
 
     _controller = AnimationController(
         duration: const Duration(milliseconds: 5000), vsync: this);
-
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.reverse) {
-        setState(() {
-          instructionsTitle = 'Breath out';
-        });
-      } else if (status == AnimationStatus.forward) {
-        setState(() {
-          instructionsTitle = 'Breath in';
-        });
-      }
-    });
   }
 
   Future<void> _playAnimation() async {
@@ -48,18 +35,20 @@ class _BarsAnimationWrapperState extends State<BarsAnimationWrapper>
         _playAnimation();
       },
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          SizedBox(height: 150),
+          Instructions(
+            controller: _controller,
+          ),
+          SizedBox(height: 50),
           Container(
             height: MediaQuery.of(context).size.height / 2,
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.topCenter,
             child: HorizontalBars(
               controller: _controller.view,
             ),
           ),
-          SizedBox(height: 100),
-          Instructions(controller: _controller, title: instructionsTitle),
-          SizedBox(height: 50),
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:cardiac_coherence/components/index.dart';
 import 'package:flutter/material.dart';
 
 var _animatedOpacity =
@@ -36,10 +37,9 @@ var _animatedOpacity =
 
 class Instructions extends StatefulWidget {
   final Animation<double> controller;
-  final String title;
   final Animation<double> opacity;
 
-  Instructions({Key? key, required this.controller, required this.title})
+  Instructions({Key? key, required this.controller})
       : opacity = _animatedOpacity(controller),
         super(key: key);
 
@@ -47,14 +47,32 @@ class Instructions extends StatefulWidget {
   State<Instructions> createState() => _InstructionsState();
 }
 
-class _InstructionsState extends State<Instructions> {
+class _InstructionsState extends State<Instructions>
+    with TickerProviderStateMixin {
+  String instructionsTitle = "Breath in";
+
+  @override
+  void initState() {
+    super.initState();
+
+    widget.controller.addStatusListener((status) {
+      if (status == AnimationStatus.reverse) {
+        setState(() {
+          instructionsTitle = 'Breath out';
+        });
+      } else if (status == AnimationStatus.forward) {
+        setState(() {
+          instructionsTitle = 'Breath in';
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-        opacity: widget.opacity,
-        child: Text(
-          widget.title,
-          style: TextStyle(fontSize: 45, color: Colors.white),
-        ));
+    return AnimatedOpacityText(
+        controller: widget.controller,
+        title: instructionsTitle,
+        opacity: widget.opacity);
   }
 }
