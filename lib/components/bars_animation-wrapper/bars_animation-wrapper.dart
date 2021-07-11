@@ -26,7 +26,7 @@ class _BarsAnimationWrapperState extends State<BarsAnimationWrapper>
     }
   }
 
-  Future<void> _stopAnimation() async {
+  void _stopAnimation() {
     _controller.stop();
   }
 
