@@ -71,8 +71,6 @@ class _InstructionsState extends State<Instructions>
   @override
   Widget build(BuildContext context) {
     return AnimatedOpacityText(
-        controller: widget.controller,
-        title: instructionsTitle,
-        opacity: widget.opacity);
+        title: instructionsTitle, opacity: widget.opacity);
   }
 }

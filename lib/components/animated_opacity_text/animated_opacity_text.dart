@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AnimatedOpacityText extends StatefulWidget {
-  final Animation<double> controller;
   final String title;
   final Animation<double> opacity;
 
-  AnimatedOpacityText(
-      {Key? key,
-      required this.controller,
-      required this.title,
-      required this.opacity})
+  AnimatedOpacityText({Key? key, required this.title, required this.opacity})
       : super(key: key);
 
   @override
