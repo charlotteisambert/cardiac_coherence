@@ -19,12 +19,10 @@ class HorizontalBars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 500,
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
               ...new List<HorizontalBar>.generate(
                   NUMBER_OF_BARS,
                   (int index) => HorizontalBar(
@@ -39,6 +37,6 @@ class HorizontalBars extends StatelessWidget {
                                 (NUMBER_OF_BARS - INDEX_SHIFT - index) /
                                 (NUMBER_OF_BARS - INDEX_SHIFT),
                       ))
-            ])));
+            ]));
   }
 }
