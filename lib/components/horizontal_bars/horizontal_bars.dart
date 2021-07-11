@@ -19,6 +19,8 @@ class HorizontalBars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        height: MediaQuery.of(context).size.height / 2,
+        alignment: Alignment.topCenter,
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

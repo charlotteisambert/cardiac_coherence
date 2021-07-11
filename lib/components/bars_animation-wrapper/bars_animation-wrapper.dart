@@ -42,12 +42,8 @@ class _BarsAnimationWrapperState extends State<BarsAnimationWrapper>
             controller: _controller,
           ),
           SizedBox(height: 50),
-          Container(
-            height: MediaQuery.of(context).size.height / 2,
-            alignment: Alignment.topCenter,
-            child: HorizontalBars(
-              controller: _controller.view,
-            ),
+          HorizontalBars(
+            controller: _controller.view,
           ),
         ],
       ),
