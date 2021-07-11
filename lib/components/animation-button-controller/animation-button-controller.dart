@@ -34,6 +34,7 @@ class _AnimationButtonControllerState extends State<AnimationButtonController> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimationButton(onPressed: _onPressed);
+    return AnimationButton(
+        onPressed: _onPressed, title: isAnimationPlaying ? "Stop" : "Start");
   }
 }
