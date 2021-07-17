@@ -1,42 +1,12 @@
 import 'package:cardiac_coherence/utils/style.dart';
 import 'package:flutter/material.dart';
 
-const GROWTH_PERCENTAGE = 50 / 100;
-
 var _simpleAnimatedWidth = (double initialWidth, double animationBegin,
         double animationDuration, Animation<double> controller) =>
     Tween<double>(
       begin: initialWidth,
       end: initialWidth + 70.0,
     ).animate(
-      CurvedAnimation(
-        parent: controller,
-        curve: Interval(
-          animationBegin,
-          animationBegin + animationDuration,
-          curve: Curves.easeOut,
-        ),
-      ),
-    );
-
-var _animatedWidthBackAndForth = (double initialWidth, double animationBegin,
-        double animationDuration, Animation<double> controller) =>
-    TweenSequence(<TweenSequenceItem<double>>[
-      TweenSequenceItem<double>(
-        tween: Tween<double>(
-          begin: initialWidth,
-          end: initialWidth + 300.0,
-        ),
-        weight: 50.0,
-      ),
-      TweenSequenceItem<double>(
-        tween: Tween<double>(
-          begin: initialWidth + 300.0,
-          end: initialWidth,
-        ),
-        weight: 50.0,
-      ),
-    ]).animate(
       CurvedAnimation(
         parent: controller,
         curve: Interval(
@@ -81,8 +51,6 @@ class HorizontalBar extends StatefulWidget {
     required this.animationDuration,
   })  : animatedWidth = _simpleAnimatedWidth(
             width, animationBegin, animationDuration, controller),
-        // animatedWidth = _animatedWidthBackAndForth(
-        //     50, animationBegin, animationDuration, controller),
         opacity =
             _animatedOpacity(animationBegin, animationDuration, controller),
         super(key: key);

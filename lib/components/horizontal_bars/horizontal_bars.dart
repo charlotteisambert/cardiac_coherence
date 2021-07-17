@@ -2,7 +2,7 @@ import 'package:cardiac_coherence/components/horizontal_bar/horizontal_bar.dart'
 import 'package:flutter/material.dart';
 
 const NUMBER_OF_BARS = 12;
-const MINIMUM_BAR_HEIGHT = 6.0;
+const BAR_HEIGHT = 6.0;
 const MINIMUM_BAR_WIDTH = 10.0;
 const ONE_BAR_ANIMATION_DURATION = 0.100;
 const INDEX_SHIFT = 1;
@@ -28,7 +28,7 @@ class HorizontalBars extends StatelessWidget {
               ...new List<HorizontalBar>.generate(
                   NUMBER_OF_BARS,
                   (int index) => HorizontalBar(
-                        height: MINIMUM_BAR_HEIGHT,
+                        height: BAR_HEIGHT,
                         width: MINIMUM_BAR_WIDTH +
                             MINIMUM_BAR_WIDTH * (NUMBER_OF_BARS - index),
                         animationDuration: ONE_BAR_ANIMATION_DURATION,
