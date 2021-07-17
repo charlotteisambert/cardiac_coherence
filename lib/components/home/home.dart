@@ -6,7 +6,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(color: Color(colors['blue'])),
+        decoration: BoxDecoration(color: Color(colors['background'])),
         child: BarsAnimationWrapper());
   }
 }
