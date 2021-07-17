@@ -1,3 +1,4 @@
+import 'package:cardiac_coherence/utils/style.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedOpacityText extends StatefulWidget {
@@ -19,7 +20,7 @@ class _AnimatedOpacityTextState extends State<AnimatedOpacityText>
         opacity: widget.opacity,
         child: Text(
           widget.title,
-          style: TextStyle(fontSize: 30, color: Colors.white),
+          style: TextStyle(fontSize: 30, color: Color(colors['light'])),
         ));
   }
 }

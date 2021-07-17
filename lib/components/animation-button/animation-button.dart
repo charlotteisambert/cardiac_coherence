@@ -1,3 +1,4 @@
+import 'package:cardiac_coherence/utils/style.dart';
 import 'package:flutter/material.dart';
 
 class AnimationButton extends StatelessWidget {
@@ -14,10 +15,10 @@ class AnimationButton extends StatelessWidget {
         onPressed: this.onPressed,
         child: Text(
           title,
-          style: TextStyle(fontSize: 15, color: Colors.white),
+          style: TextStyle(fontSize: 15, color: Color(colors['light'])),
         ),
         style: OutlinedButton.styleFrom(
             shape: StadiumBorder(),
-            side: BorderSide(width: 1, color: Colors.white)));
+            side: BorderSide(width: 1, color: Color(colors['light']))));
   }
 }

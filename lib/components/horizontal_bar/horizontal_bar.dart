@@ -1,3 +1,4 @@
+import 'package:cardiac_coherence/utils/style.dart';
 import 'package:flutter/material.dart';
 
 const GROWTH_PERCENTAGE = 50 / 100;
@@ -97,7 +98,7 @@ class _HorizontalBarState extends State<HorizontalBar>
         width: widget.animatedWidth.value,
         height: widget.height,
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(widget.opacity.value),
+          color: Color(colors['light']).withOpacity(widget.opacity.value),
           borderRadius: BorderRadius.circular(10),
         ));
   }
