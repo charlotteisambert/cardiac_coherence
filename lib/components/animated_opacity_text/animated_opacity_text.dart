@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 class AnimatedOpacityText extends StatefulWidget {
   final String title;
   final Animation<double> opacity;
+  final Animation<double> scale;
 
-  AnimatedOpacityText({Key? key, required this.title, required this.opacity})
+  AnimatedOpacityText(
+      {Key? key,
+      required this.title,
+      required this.opacity,
+      required this.scale})
       : super(key: key);
 
   @override
@@ -18,9 +23,11 @@ class _AnimatedOpacityTextState extends State<AnimatedOpacityText>
   Widget build(BuildContext context) {
     return FadeTransition(
         opacity: widget.opacity,
-        child: Text(
-          widget.title,
-          style: TextStyle(fontSize: 30, color: Color(colors['light'])),
-        ));
+        child: ScaleTransition(
+            alignment: Alignment.topCenter,
+            scale: widget.scale,
+            child: Text(widget.title,
+                style:
+                    TextStyle(fontSize: 20, color: Color(colors['light'])))));
   }
 }

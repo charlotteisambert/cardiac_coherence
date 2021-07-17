@@ -35,12 +35,28 @@ var _animatedOpacity =
           ),
         );
 
+var _animatedScale = (Animation<double> controller) => Tween<double>(
+      begin: 1.0,
+      end: 1.5,
+    ).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: Interval(
+          0.05,
+          0.95,
+          curve: Curves.linear,
+        ),
+      ),
+    );
+
 class Instructions extends StatefulWidget {
   final Animation<double> controller;
   final Animation<double> opacity;
+  final Animation<double> scale;
 
   Instructions({Key? key, required this.controller})
       : opacity = _animatedOpacity(controller),
+        scale = _animatedScale(controller),
         super(key: key);
 
   @override
@@ -70,7 +86,10 @@ class _InstructionsState extends State<Instructions>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedOpacityText(
-        title: instructionsTitle, opacity: widget.opacity);
+    return Container(
+        child: AnimatedOpacityText(
+            title: instructionsTitle,
+            opacity: widget.opacity,
+            scale: widget.scale));
   }
 }
