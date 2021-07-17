@@ -50,7 +50,7 @@ var _animatedWidthBackAndForth = (double initialWidth, double animationBegin,
 var _animatedOpacity = (double animationBegin, double animationDuration,
         Animation<double> controller) =>
     Tween<double>(
-      begin: 0.1,
+      begin: 0.2,
       end: 1.0,
     ).animate(
       CurvedAnimation(
@@ -95,12 +95,29 @@ class _HorizontalBarState extends State<HorizontalBar>
     with TickerProviderStateMixin {
   Widget _buildAnimation(BuildContext context, Widget? child) {
     return Container(
-        width: widget.animatedWidth.value,
-        height: widget.height,
-        decoration: BoxDecoration(
-          color: Color(colors['light']).withOpacity(widget.opacity.value),
-          borderRadius: BorderRadius.circular(10),
-        ));
+      width: widget.animatedWidth.value,
+      height: widget.height,
+      decoration: BoxDecoration(
+        color: Color(colors['light']).withOpacity(widget.opacity.value),
+        borderRadius: BorderRadius.circular(10),
+        gradient: RadialGradient(
+          radius: widget.animatedWidth.value / 5,
+          colors: [
+            Color(0xFFFFD700),
+            Color(colors['light']),
+            Color(0xFFb8860b),
+          ],
+        ),
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: Color(colors['light']).withOpacity(widget.opacity.value / 2),
+        //     spreadRadius: 2,
+        //     blurRadius: 7,
+        //     offset: Offset(0, 3), // changes position of shadow
+        //   ),
+        // ],
+      ),
+    );
   }
 
   @override
