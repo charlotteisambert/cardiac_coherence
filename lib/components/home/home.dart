@@ -5,7 +5,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(color: Colors.indigo[900]),
+        decoration: BoxDecoration(color: Color(0xFF103BAA)),
         child: BarsAnimationWrapper());
   }
 }
