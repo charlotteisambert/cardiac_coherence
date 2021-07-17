@@ -29,16 +29,20 @@ class HorizontalBars extends StatelessWidget {
                   NUMBER_OF_BARS,
                   (int index) => HorizontalBar(
                         height: BAR_HEIGHT,
-                        width: MINIMUM_BAR_WIDTH +
-                            MINIMUM_BAR_WIDTH * (NUMBER_OF_BARS - index),
+                        width: getWidth(index),
                         animationDuration: ONE_BAR_ANIMATION_DURATION,
                         controller: controller,
-                        animationBegin: DELAY_BETWEEN_ITERATION / 2 +
-                            (WHOLE_ANIMATION_DURATION -
-                                    ONE_BAR_ANIMATION_DURATION) *
-                                (NUMBER_OF_BARS - INDEX_SHIFT - index) /
-                                (NUMBER_OF_BARS - INDEX_SHIFT),
+                        animationBegin: getAnimationBegin(index),
                       ))
             ]));
   }
 }
+
+var getWidth = (int index) =>
+    MINIMUM_BAR_WIDTH + MINIMUM_BAR_WIDTH * (NUMBER_OF_BARS - index);
+
+var getAnimationBegin = (int index) =>
+    DELAY_BETWEEN_ITERATION / 2 +
+    (WHOLE_ANIMATION_DURATION - ONE_BAR_ANIMATION_DURATION) *
+        (NUMBER_OF_BARS - INDEX_SHIFT - index) /
+        (NUMBER_OF_BARS - INDEX_SHIFT);
