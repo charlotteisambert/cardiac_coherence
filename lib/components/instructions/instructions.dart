@@ -1,4 +1,7 @@
+import 'package:cardiac_coherence/components/animated_scale/animated_scale.dart';
 import 'package:cardiac_coherence/components/index.dart';
+import 'package:cardiac_coherence/components/instructions_animated_opacity/instructions_animated_opacity.dart';
+import 'package:cardiac_coherence/utils/style.dart';
 import 'package:flutter/material.dart';
 
 var _animatedOpacity =
@@ -87,9 +90,12 @@ class _InstructionsState extends State<Instructions>
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: AnimatedOpacityText(
-            title: instructionsTitle,
+        child: InstructionsAnimatedOpacity(
             opacity: widget.opacity,
-            scale: widget.scale));
+            child: AnimatedScale(
+                scale: widget.scale,
+                child: Text(instructionsTitle,
+                    style: TextStyle(
+                        fontSize: 20, color: Color(colors['light']))))));
   }
 }
