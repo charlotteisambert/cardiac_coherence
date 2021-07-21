@@ -69,11 +69,11 @@ class _HorizontalBarState extends State<HorizontalBar>
         color: Color(colors['light']).withOpacity(widget.opacity.value),
         borderRadius: BorderRadius.circular(10),
         gradient: RadialGradient(
-          radius: widget.animatedWidth.value / 5,
+          radius: widget.animatedWidth.value / 9,
           colors: [
-            Color(0xFFFFD700),
+            Color(0xFFEAE8E8),
             Color(colors['light']),
-            Color(0xFFb8860b),
+            Color(0xFFB3B2B2),
           ],
         ),
         // boxShadow: [
