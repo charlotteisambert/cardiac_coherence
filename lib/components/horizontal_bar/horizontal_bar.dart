@@ -1,11 +1,15 @@
 import 'package:cardiac_coherence/utils/style.dart';
 import 'package:flutter/material.dart';
 
+const INACTIVE_BAR_OPACITY = 0.2;
+const ACTIVE_BAR_OPACITY = 1.0;
+const BAR_WIDTH_INCREASE = 70.0;
+
 var _simpleAnimatedWidth = (double initialWidth, double animationBegin,
         double animationDuration, Animation<double> controller) =>
     Tween<double>(
       begin: initialWidth,
-      end: initialWidth + 70.0,
+      end: initialWidth + BAR_WIDTH_INCREASE,
     ).animate(
       CurvedAnimation(
         parent: controller,
@@ -20,8 +24,8 @@ var _simpleAnimatedWidth = (double initialWidth, double animationBegin,
 var _animatedOpacity = (double animationBegin, double animationDuration,
         Animation<double> controller) =>
     Tween<double>(
-      begin: 0.2,
-      end: 1.0,
+      begin: INACTIVE_BAR_OPACITY,
+      end: ACTIVE_BAR_OPACITY,
     ).animate(
       CurvedAnimation(
         parent: controller,

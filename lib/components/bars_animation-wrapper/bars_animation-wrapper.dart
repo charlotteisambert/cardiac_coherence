@@ -1,6 +1,10 @@
 import 'package:cardiac_coherence/components/index.dart';
 import 'package:flutter/material.dart';
 
+const int ANIMATION_DURATION = 5000;
+const double HEADER_SHIFT_HEIGHT = 150;
+const double SPACING = 50;
+
 class BarsAnimationWrapper extends StatefulWidget {
   _BarsAnimationWrapperState createState() => _BarsAnimationWrapperState();
 }
@@ -14,7 +18,8 @@ class _BarsAnimationWrapperState extends State<BarsAnimationWrapper>
     super.initState();
 
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 5000), vsync: this);
+        duration: const Duration(milliseconds: ANIMATION_DURATION),
+        vsync: this);
   }
 
   Future<void> _playAnimation() async {
@@ -35,15 +40,15 @@ class _BarsAnimationWrapperState extends State<BarsAnimationWrapper>
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SizedBox(height: 150),
+        SizedBox(height: HEADER_SHIFT_HEIGHT),
         Instructions(
           controller: _controller,
         ),
-        SizedBox(height: 50),
+        SizedBox(height: SPACING),
         HorizontalBars(
           controller: _controller.view,
         ),
-        SizedBox(height: 50),
+        SizedBox(height: SPACING),
         AnimationButtonController(
             startAnimation: _playAnimation, stopAnimation: _stopAnimation)
       ],
