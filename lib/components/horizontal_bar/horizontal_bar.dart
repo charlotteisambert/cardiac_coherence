@@ -76,14 +76,6 @@ class _HorizontalBarState extends State<HorizontalBar>
             Color(0xFFB3B2B2),
           ],
         ),
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: Color(colors['light']).withOpacity(widget.opacity.value / 2),
-        //     spreadRadius: 2,
-        //     blurRadius: 7,
-        //     offset: Offset(0, 3), // changes position of shadow
-        //   ),
-        // ],
       ),
     );
   }

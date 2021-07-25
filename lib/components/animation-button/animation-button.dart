@@ -19,7 +19,7 @@ class AnimationButton extends StatelessWidget {
       ),
       style: ButtonStyle(
         overlayColor: MaterialStateProperty.resolveWith<Color?>((_) {
-          return Color(0xFFF2D7D1);
+          return Color(0xFF4C77E3);
         }),
         shape: MaterialStateProperty.resolveWith<OutlinedBorder?>((states) {
           // Rounded button (when the button is pressed)
